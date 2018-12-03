@@ -1,0 +1,290 @@
+name: "MISLnet"
+input: "data"
+input_shape {
+  dim: 1
+  dim: 1
+  dim: 256
+  dim: 256
+}
+layer {
+  name: "convF"
+  type: "Convolution"
+  bottom: "data"
+  top: "convF"
+  convolution_param {
+    num_output: 3
+    kernel_size: 5
+    #group: 3
+    stride: 1
+  }
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "convF"
+  top: "conv1"
+  convolution_param {
+    num_output: 96
+    pad: 3
+    kernel_size: 7
+    stride: 2
+  }
+}
+layer {
+  name: "conv1/bn"
+  type: "BatchNorm"
+  bottom: "conv1"
+  top: "conv1/bn"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+}
+layer {
+  name: "scale1"
+  type: "Scale"
+  bottom: "conv1/bn"
+  top: "scale1"
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "relu1"
+  type: "TanH"
+  bottom: "scale1"
+  top: "scale1"
+#  relu_param{negative_slope: 0.15}
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "scale1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "conv2"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2"
+  convolution_param {
+    num_output: 64
+    pad: 2
+    kernel_size: 5
+  }
+}
+layer {
+  name: "conv2/bn"
+  type: "BatchNorm"
+  bottom: "conv2"
+  top: "conv2/bn"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+}
+layer {
+  name: "scale2"
+  type: "Scale"
+  bottom: "conv2/bn"
+  top: "scale2"
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "relu2"
+  type: "TanH"
+  bottom: "scale2"
+  top: "scale2"
+#  relu_param{negative_slope: 0.15}
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "scale2"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "conv3"
+  type: "Convolution"
+  bottom: "pool2"
+  top: "conv3"
+  convolution_param {
+    num_output: 64
+    pad: 2
+    kernel_size: 5
+    #stride: 2
+  }
+}
+layer {
+  name: "conv3/bn"
+  type: "BatchNorm"
+  bottom: "conv3"
+  top: "conv3/bn"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+}
+layer {
+  name: "scale3"
+  type: "Scale"
+  bottom: "conv3/bn"
+  top: "scale3"
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "relu3"
+  type: "TanH"
+  bottom: "scale3"
+  top: "scale3"
+#  relu_param{negative_slope: 0.15}
+}
+layer {
+  name: "pool3"
+  type: "Pooling"
+  bottom: "scale3"
+  top: "pool3"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "conv4"
+  type: "Convolution"
+  bottom: "pool3"
+  top: "conv4"
+  convolution_param {
+    num_output: 128
+    #pad: 2
+    kernel_size: 1
+    #stride: 2
+  }
+}
+layer {
+  name: "conv4/bn"
+  type: "BatchNorm"
+  bottom: "conv4"
+  top: "conv4/bn"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+}
+layer {
+  name: "scale4"
+  type: "Scale"
+  bottom: "conv4/bn"
+  top: "scale4"
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "relu4"
+  type: "TanH"
+  bottom: "scale4"
+  top: "scale4"
+#  relu_param{negative_slope: 0.15}
+}
+layer {
+  name: "pool4"
+  type: "Pooling"
+  bottom: "scale4"
+  top: "pool4"
+  pooling_param {
+    pool: AVE
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "fc6"
+  type: "InnerProduct"
+  bottom: "pool4"
+  top: "fc6"
+  inner_product_param {
+    num_output: 200
+  }
+}
+layer {
+  name: "relu6"
+  type: "TanH"
+  bottom: "fc6"
+  top: "fc6_res"
+#  relu_param{negative_slope: 0.15}
+}
+layer {
+  name: "fc7"
+  type: "InnerProduct"
+  bottom: "fc6_res"
+  top: "fc7"
+  inner_product_param {
+    num_output: 200
+  }
+}
+layer {
+  name: "relu7"
+  type: "TanH"
+  bottom: "fc7"
+  top: "fc7_res"
+#  relu_param{negative_slope: 0.15}
+}
+layer {
+  name: "fc8"
+  type: "InnerProduct"
+  bottom: "fc7_res"
+  top: "fc8"
+  inner_product_param {
+    num_output: 6
+  }
+}
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "fc8"
+  top: "prob"
+}
+
+
+
+
+
+
+
+

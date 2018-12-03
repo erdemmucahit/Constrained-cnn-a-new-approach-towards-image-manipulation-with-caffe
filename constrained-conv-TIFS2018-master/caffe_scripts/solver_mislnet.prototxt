@@ -1,0 +1,21 @@
+net: "/home/belhassen/caffe_scripts/train_val_mislnet.prototxt" 
+#Make sure to add the correct path of your network in the above line
+test_iter: 2000
+test_interval: 1000
+test_initialization: false
+display: 40
+average_loss: 40
+base_lr: 0.001
+lr_policy: "step"
+stepsize: 56250
+#We found that training with stepsize of 3 epochs gives similar results to 6 epochs for 1.2M training patches
+#This will significantly save the training time
+gamma: 0.5
+max_iter: 675200
+#Train for about 12x3=36 epochs for 11 different learning rates
+momentum: 0.95
+weight_decay: 0.0005
+snapshot: 1000
+snapshot_prefix: "/path/to/data/snapshots/mislnet_six_classes" 
+#Make sure to add the correct path of the snapshots folder under your data directory in the above line
+solver_mode: GPU

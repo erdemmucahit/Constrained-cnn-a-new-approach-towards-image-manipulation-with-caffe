@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "training_mislnet.py", line 26, in <module>
+    caffe.set_device(0)
+AttributeError: 'module' object has no attribute 'set_device'
+Traceback (most recent call last):
+  File "training_mislnet.py", line 26, in <module>
+    caffe.set_device(0)
+AttributeError: 'module' object has no attribute 'set_device'
+Traceback (most recent call last):
+  File "training_mislnet.py", line 26, in <module>
+    caffe.set_device(0)
+AttributeError: 'module' object has no attribute 'set_device'
+Traceback (most recent call last):
+  File "training_mislnet.py", line 27, in <module>
+    caffe.set_device(0,1)
+AttributeError: 'module' object has no attribute 'set_device'
+Traceback (most recent call last):
+  File "training_mislnet.py", line 22, in <module>
+    import module
+ImportError: No module named module
+Traceback (most recent call last):
+  File "training_mislnet.py", line 28, in <module>
+    caffe.set_device(0,1)
+AttributeError: 'module' object has no attribute 'set_device'
+Traceback (most recent call last):
+  File "training_mislnet.py", line 27, in <module>
+    caffe.set_device(0)
+AttributeError: 'module' object has no attribute 'set_device'
+Traceback (most recent call last):
+  File "training_mislnet.py", line 27, in <module>
+    caffe.set_device(0)
+AttributeError: 'module' object has no attribute 'set_device'
+Traceback (most recent call last):
+  File "training_mislnet.py", line 27, in <module>
+    caffe.set_device(0)
+AttributeError: 'module' object has no attribute 'set_device'
+  File "training_mislnet.py", line 33
+    for i in range(675200):
+                          ^
+IndentationError: unindent does not match any outer indentation level
+Traceback (most recent call last):
+  File "training_mislnet.py", line 31, in <module>
+    solver = caffe.SGDSolver('/home/erdem/constrained-conv-TIFS2018-master/caffe_scripts/solver_mislnet.prototxt')
+AttributeError: 'module' object has no attribute 'SGDSolver'
+Traceback (most recent call last):
+  File "training_mislnet.py", line 31, in <module>
+    solver = caffe.SGDSolver('/home/erdem/constrained-conv-TIFS2018-master/caffe_scripts/solver_mislnet.prototxt')
+AttributeError: 'module' object has no attribute 'SGDSolver'
+WARNING:root:This caffe2 python run does not have GPU support. Will run in CPU only mode.
+WARNING:root:Debug message: No module named caffe2_pybind11_state_hip
+Traceback (most recent call last):
+  File "training_mislnet.py", line 15, in <module>
+    from caffe2.python import data_parallel_model, model_helper
+  File "/usr/local/lib/python2.7/dist-packages/caffe2/python/data_parallel_model.py", line 12, in <module>
+    from caffe2.python import \
+  File "/usr/local/lib/python2.7/dist-packages/caffe2/python/memonger.py", line 8, in <module>
+    import networkx as nx
+ImportError: No module named networkx
+WARNING:root:This caffe2 python run does not have GPU support. Will run in CPU only mode.
+WARNING:root:Debug message: No module named caffe2_pybind11_state_hip
+Traceback (most recent call last):
+  File "training_mislnet.py", line 31, in <module>
+    solver = caffe.SGDSolver('/home/erdem/constrained-conv-TIFS2018-master/caffe_scripts/solver_mislnet.prototxt')
+AttributeError: 'module' object has no attribute 'SGDSolver'
+Traceback (most recent call last):
+  File "training_mislnet.py", line 31, in <module>
+    solver = caffe.SGDSolver('/home/erdem/constrained-conv-TIFS2018-master/caffe_scripts/solver_mislnet.prototxt')
+AttributeError: 'module' object has no attribute 'SGDSolver'
