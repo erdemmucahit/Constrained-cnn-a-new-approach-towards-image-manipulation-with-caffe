@@ -1,0 +1,3 @@
+Bu staj projem tamamen "Bayar B., Stamm M. C. (2018). Constrained convolutional neural networks: a new approach towards general purpose image manipulation detection. IEEE Trans. Inform. Forensics Security 13, 2691–2706. 10.1109/TIFS.2018.2825953 " kaynaklı çalışmanın üzerine yapılmıştır. Gerekli bütün dosyalar mevcuttur. Ancak bazı yerler Türkçedir. Saygılar
+This internship project is entirely based on "Bayar B., Stamm MC (2018). Constrained convolutional neural networks: a new approach to general purpose image manipulation detection. IEEE Trans. Inform. Forensics Security 13, 2691–2706. 10.1109/TIFS.2018.2825953" 
+The study was conducted on. All necessary files are available. However, some places are in Turkish. Best Regards 
